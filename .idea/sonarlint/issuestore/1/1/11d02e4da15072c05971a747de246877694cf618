@@ -1,0 +1,8 @@
+
+>
+java:S1170"!Make this final field static too.(þ”“Œ8ØÄ€³®.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ä¹õ
+i	java:S116"MRename this field "HI" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(þ”“Œ8ØÄ€³®.
+C
+java:S1170"!Make this final field static too.(Èï„Çøÿÿÿÿ8ØÄ€³®.
+w	java:S116"VRename this field "EPICMESSAGE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Èï„Çøÿÿÿÿ8ØÄ€³®.

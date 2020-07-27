@@ -1,0 +1,11 @@
+
+k
+java:S2095‹"OUse try-with-resources or close this "DefaultHttpClient" in a "finally" clause.(‹Æ¥ıÿÿÿÿ
+v
+java:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(À™•Ò
+?	java:S108™")Either remove or fill this block of code.(²è­
+2
+java:S1643"Use a StringBuilder instead.(óéƒØ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(§ıÌà
+U
+java:S1874‹"9Remove this use of "DefaultHttpClient"; it is deprecated.(‹Æ¥ıÿÿÿÿ

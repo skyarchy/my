@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: timeBot
+  datasource:
+    url: jdbc:h2:file:~/timeBot/botdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      settings:
+        web-allow-others: true
+      enabled: true
+      path: /h2
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+
+scheduler:
+  cron: "0 */1 * * * *"
+  work: true
+
+#bot:
+#  token: 1141083713:AAG8Vu-DXUvIxq4RZp1NMXUBMocjjrH0EVA
+#  name: tguardians_bot
+
+
+bot:
+  token: 1299213097:AAE9XIjrMFVhYsLymDfW_ylM8XPgQMTmRZY
+  name: umneeivana
+
+
+server:
+  port: 8383

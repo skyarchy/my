@@ -1,0 +1,6 @@
+
+‰
+java:S1130"sRemove the declaration of thrown exception 'org.springframework.beans.BeansException' which is a runtime exception.(úî’
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ì«
+Q
+java:S2696"6Make the enclosing method "static" or remove this set.(É‹í­üÿÿÿÿ

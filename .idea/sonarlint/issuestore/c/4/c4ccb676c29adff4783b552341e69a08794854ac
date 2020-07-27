@@ -1,0 +1,25 @@
+
+^	java:S125‹"<This block of commented-out lines of code should be removed.(„“¾šüÿÿÿÿ8‹‰Ùæ¶.
+]	java:S125o"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8ó­ ’·.
+u
+java:S3776‰"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(‘ï‹şÿÿÿÿ8âç°¯.
+^	java:S125ä"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8âç°¯.
+^	java:S125–"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8âç°¯.
+]	java:S125c"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8–—é²·.
+^	java:S125·"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8âç°¯.
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦Ìã8âç°¯.
+]	java:S125|"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8âç°¯.
+^	java:S125Æ"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8âç°¯.
+^	java:S125…"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8‹‰Ùæ¶.
+]	java:S125="<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8¾Êç°¯.
+^	java:S125§"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8âç°¯.
+^	java:S125ú"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8”ñî´·.
+]	java:S125V"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8îÕ²·.
+Q
+java:S37406"/Provide the parametrized type for this generic.(çíÎ‡ÿÿÿÿÿ8âç°¯.
+^	java:S125Õ"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8±øğã¯.
+]	java:S125I"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8âç°¯.
+^	java:S125Š"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8âç°¯.
+R
+java:S1066š"/Merge this if statement with the enclosing one.(ØÕÒñùÿÿÿÿ8âç°¯.
+^	java:S125ò"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ8”ñî´·.

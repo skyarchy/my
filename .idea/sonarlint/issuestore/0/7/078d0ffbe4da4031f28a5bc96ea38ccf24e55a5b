@@ -1,0 +1,14 @@
+
+c
+java:S11922"HDefine a constant instead of duplicating this literal "hero4ml" 3 times.(ƒÕŸúÿÿÿÿ
+G
+java:S1481:",Remove this unused "hero4ml" local variable.(Ë«×Ñûÿÿÿÿ
+m
+java:S3776E"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(ìòŸ´øÿÿÿÿ
+D
+java:S1481"")Remove this unused "art3" local variable.(¾Í‘ƒûÿÿÿÿ
+^
+java:S11924"HDefine a constant instead of duplicating this literal "hero5ml" 3 times.(…ÛéÖ
+c
+java:S1192,"HDefine a constant instead of duplicating this literal "hero3ml" 3 times.( Ÿ…Šøÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ä¹õ

@@ -1,0 +1,6 @@
+
+E
+java:S1481W"(Remove this unused "asa" local variable.(ÁÁ±¿8‰‰Ùæ¶.
+v
+java:S1192H"TDefine a constant instead of duplicating this literal "getHeroNamefrombot:" 3 times.(ÊÖÏøÿÿÿÿ8‰‰Ùæ¶.
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ä¹õ8 ¥»±¯.

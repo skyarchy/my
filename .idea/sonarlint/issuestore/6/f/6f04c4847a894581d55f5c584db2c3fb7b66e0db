@@ -1,0 +1,11 @@
+
+^	java:S125Ê"<This block of commented-out lines of code should be removed.(¶Ş¥†üÿÿÿÿ8˜Ş¤µ·.
+R
+java:S1144À"/Remove this unused private "arrayCheck" method.(× ‡ÿÿÿÿÿ8ˆµ·.
+X
+java:S1141ª"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ˆµ·.
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ä¹õ8×æ·®¯.
+W
+java:S1172È"4Remove this unused method parameter "callbackquery".(ÍÄÆûÿÿÿÿ8˜Ş¤µ·.
+o
+java:S3776&"RRefactor this method to reduce its Cognitive Complexity from 52 to the 15 allowed.(œ—‰²8×æ·®¯.
