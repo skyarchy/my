@@ -1,10 +1,8 @@
 package timeBot.mainbot;
 
 import org.springframework.stereotype.Service;
-import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
-import org.telegram.telegrambots.meta.api.objects.Update;
 import timeBot.dto.MessageDTO;
 
 import java.io.File;
@@ -14,13 +12,9 @@ import java.util.List;
 public interface BotInterface {
 
 
-    void pinMsg(int messageId, String chatId);
-
     void sendMsg(String message, String chatId);
 
     void deleteMsg(int messageId, String chatId);
-
-    void onUpdateReceived(Update update);
 
     void sendMsgWithKeysHeroDB(Message message, String text, MessageDTO data);
 
@@ -39,8 +33,6 @@ public interface BotInterface {
     void sendMsgWithKeysHeroChoise(Message message, String text, List<String> names);
 
     void sendMsgWithPic(String message, String chatId, String pic);
-
-    void answerCollBackQuery(AnswerCallbackQuery answerCallbackQuery);
 
     void sendPullMessageFirst(Message msg, String imageCaption, String photo);
 

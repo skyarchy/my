@@ -3,13 +3,11 @@ package timeBot.Utils;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Message;
-import timeBot.mainbot.Bot;
 
 @Service
 @AllArgsConstructor
 public class NewChatMembersInOut {
 
-    private final Bot bot;
 
     private final String HI = "Приветствуем ";
 
@@ -20,11 +18,11 @@ public class NewChatMembersInOut {
 
     public void newMember(Message message) {
 
-        String newMemberName = message.getNewChatMembers().get(0).getFirstName();
-        if (message.getChat().getId().toString().equals("-1001425195630"))
-            bot.sendMsg(HI + newMemberName + EPICMESSAGE, message.getChatId().toString());
-        if (message.getChat().getId().toString().equals("-1001429712030"))
-            bot.sendMsg(HI + newMemberName + EPICMESSAGE, message.getChatId().toString());
+//        String newMemberName = message.getNewChatMembers().get(0).getFirstName();
+//        if (message.getChat().getId().toString().equals("-1001425195630"))
+//            bot.sendMsg(HI + newMemberName + EPICMESSAGE, message.getChatId().toString());
+//        if (message.getChat().getId().toString().equals("-1001429712030"))
+//            bot.sendMsg(HI + newMemberName + EPICMESSAGE, message.getChatId().toString());
     }
 
 }

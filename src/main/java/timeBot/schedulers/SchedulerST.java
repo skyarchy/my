@@ -11,6 +11,7 @@ import timeBot.dto.StreamsDTO;
 import timeBot.entity.OnlineEntity;
 import timeBot.entity.StreamersDataEntity;
 import timeBot.mainbot.Bot;
+import timeBot.mainbot.BotService;
 import timeBot.repository.OnlineCheckRepository;
 import timeBot.repository.StreamersDataRepository;
 import timeBot.twitchapi.GetStream;
@@ -32,7 +33,7 @@ public class SchedulerST implements Runnable {
     private ScheduledFuture scheduledFuture;
     private TaskScheduler taskScheduler;
     private final GetStream getStream;
-    private final Bot bot;
+    private final BotService botService;
     private final StreamersDataRepository repository;
     private final OnlineCheckRepository onlineRepository;
 
@@ -58,8 +59,8 @@ public class SchedulerST implements Runnable {
                     OnlineEntity onlineEntity = onlineRepository.getRow(data.getCode());
                     if (streamsDTO != null) {
                         if (onlineEntity.getOnoff() == 0) {
-                            bot.sendStreamMsg("Стрим начался. Game - " + streamsDTO.getGameName() + "\n" +
-                                    " <a href=\"" + streamsDTO.getChannelUrl() + "\">" + data.getName() + "</a>", "-1001425195630");
+                            botService.sendMessageBase(true, false, Long.parseLong("-1001425195630"),null, "Стрим начался. Game - " + streamsDTO.getGameName() + "\n" +
+                                    " <a href=\"" + streamsDTO.getChannelUrl() + "\">" + data.getName() + "</a>");
                             onlineEntity.setOnoff(1);
                             onlineRepository.save(onlineEntity);
                         }
