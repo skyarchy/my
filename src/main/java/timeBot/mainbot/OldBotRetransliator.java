@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import timeBot.dto.MessageDTO;
-import timeBot.services.Retransliator;
+import timeBot.services.LazyForBot;
 
 import java.io.File;
 import java.util.List;
@@ -12,20 +12,18 @@ import java.util.List;
 @Component
 public class OldBotRetransliator implements BotInterface {
 
-    private final Retransliator retransliator;
+    private final LazyForBot retransliator;
 
     private final BotService botService;
 
-    public OldBotRetransliator(Retransliator retransliator, BotService botService) {
+    public OldBotRetransliator(LazyForBot retransliator, BotService botService) {
         this.retransliator = retransliator;
         this.botService = botService;
     }
 
-
     @Override
     public void sendMsg(String message, String chatId) {
         botService.sendMessageBase(true, true, Long.parseLong(chatId), null, message);
-
     }
 
     @Override

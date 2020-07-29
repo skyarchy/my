@@ -14,7 +14,7 @@ import timeBot.repository.StreamersDataRepository;
 import timeBot.services.AddArtsInBase;
 import timeBot.services.AddHeroesInBase;
 import timeBot.services.CatsAPI;
-import timeBot.services.Retransliator;
+import timeBot.services.LazyForBot;
 import timeBot.twitchapi.GetStream;
 
 import java.io.File;
@@ -28,7 +28,7 @@ public class GetMessage implements GetMessageEpicSevenInterface {
     private final BotInterface bot;
     private final GetStream getStream;
     private final StreamersDataRepository repository;
-    private final Retransliator retransliator;
+    private final LazyForBot retransliator;
     private final CatsAPI catsAPI;
     private final AddHeroesInBase addHeroesInBase;
     private final AddArtsInBase addArtsInBase;

@@ -10,7 +10,7 @@ import timeBot.Utils.*;
 import java.util.List;
 
 @Component
-public class Retransliator {
+public class LazyForBot {
 
     private GetMessageEpicSevenInterface getMessageEpicSevenInterface;
     private NewChatMembersInOut newChatMembersIn;
@@ -19,9 +19,9 @@ public class Retransliator {
     private BaseMessagesEpic newCharBaseMessagesEpic;
     private StartPolling startPolling;
 
-    public Retransliator(@Lazy GetMessageEpicSevenInterface getMessageEpicSevenInterface, @Lazy NewChatMembersInOut newChatMembersIn,
-                         @Lazy CreateButtonsInline createButtonsInline,
-                         @Lazy AddDeleteNewStreamer addDeleteNewStreamer, @Lazy BaseMessagesEpic newCharBaseMessagesEpic, @Lazy StartPolling startPolling) {
+    public LazyForBot(@Lazy GetMessageEpicSevenInterface getMessageEpicSevenInterface, @Lazy NewChatMembersInOut newChatMembersIn,
+                      @Lazy CreateButtonsInline createButtonsInline,
+                      @Lazy AddDeleteNewStreamer addDeleteNewStreamer, @Lazy BaseMessagesEpic newCharBaseMessagesEpic, @Lazy StartPolling startPolling) {
         this.getMessageEpicSevenInterface = getMessageEpicSevenInterface;
         this.newChatMembersIn = newChatMembersIn;
         this.createButtonsInline = createButtonsInline;

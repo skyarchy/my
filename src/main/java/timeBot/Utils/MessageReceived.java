@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import timeBot.services.Retransliator;
+import timeBot.services.LazyForBot;
 
 @Service
 @AllArgsConstructor
 public class MessageReceived {
 
-    private final Retransliator retransliator;
+    private final LazyForBot retransliator;
 
     public void updatedMessage(Update update) {
 
