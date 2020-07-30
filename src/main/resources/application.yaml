@@ -26,7 +26,6 @@ scheduler:
     cron: "0 */1 * * * *"
     work: true
 
-gwchatIds: "-1001425195630"
 
 
 

@@ -78,4 +78,9 @@ public class GWInfoHelper {
 
     }
 
+    public void deleteFromAGwBaseOneTower(int tower, String chatId){
+        GWInfoEntity gwInfoEntitie = gwInfoRepository.getAllByBNumberAndChatId(tower, chatId);
+        gwInfoRepository.delete(gwInfoEntitie);
+    }
+
 }

@@ -49,10 +49,20 @@ public class GetMessage implements GetMessageEpicSevenInterface {
         String message = msg.getText();
         if (message.equals("/help") || message.equals("/help@tguardians_bot")) {
             bot.sendMsg("<b>Все команды</b> - \n " +
-                            "/streamers - показывает зарегестрированных стримеров \n"
+                            "/getBaseNumbers получить картинку с номерами башен \n" +
+                            "/info получить инфу которую уже добавили за сегодня\n" +
+                            "\n" +
+                            "чтобы добавить инфу нужно написать \"/add 13 (где 13 это номер башни) инфа текстом без картинок \" \n"
                     , msg.getChatId().toString());
             bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
         }
+        if (message.equals("/getBaseNumbers") || message.equals("/getBaseNumbers@tguardians_bot")) {
+            String path = System.getProperty("user.dir") + File.separator + "basesYe.jpg";
+            File file = new File(path);
+            bot.sendPhotoFile(file, msg.getChatId().toString());
+            bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
+        }
+
 
         if (message.equals("/help1") || message.equals("/help1@tguardians_bot")) {
             bot.sendMsg("<b>Пока ничего</b> - \n"
@@ -62,11 +72,21 @@ public class GetMessage implements GetMessageEpicSevenInterface {
 
         if (message.equals("/adminHelp")) {
             if (adminTest(msg.getFrom().getId().toString())) {
-                bot.sendMsg("<b>Все команды</b> - \n "
+                bot.sendMsg("<b>Все команды</b> - \n " +
+                                "deletegwinfoin%13 удалить инфу из базы гв по башне \n"
                         , msg.getChatId().toString());
             }
             bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
         }
+
+
+        if (message.contains("/deletegwinfoin")) {
+            if (adminTest(msg.getFrom().getId().toString())) {
+                gwInfoHelper.deleteFromAGwBaseOneTower(Integer.parseInt(message.split("%")[1]), msg.getChatId().toString());
+            }
+            bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
+        }
+
 
         if (message.contains("/add")) {
             if (message.length() < 8) {
@@ -76,7 +96,7 @@ public class GetMessage implements GetMessageEpicSevenInterface {
             }
         }
 
-        if (message.contains("/info")) {
+        if (message.equals("/info") || message.equals("/info@tguardians_bot")) {
             gwInfoHelper.gwGetInfo(msg);
         }
 
