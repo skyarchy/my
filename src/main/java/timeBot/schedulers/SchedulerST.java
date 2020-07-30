@@ -24,10 +24,10 @@ import java.util.concurrent.ScheduledFuture;
 @RequiredArgsConstructor
 public class SchedulerST implements Runnable {
 
-    @Value("${scheduler.work}")
+    @Value("${scheduler.stream.work}")
     private boolean work;
 
-    @Value("${scheduler.cron}")
+    @Value("${scheduler.stream.cron}")
     private String cron;
 
     private ScheduledFuture scheduledFuture;

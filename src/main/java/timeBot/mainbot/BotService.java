@@ -20,4 +20,6 @@ public interface BotService {
 
     void deleteMsg(int messageId, String chatId);
 
+    void sendReplyBase(boolean html, boolean disableWebPreviw, Long chatId, InlineKeyboardMarkup inlineKeyboardMarkup, String text, String replyMessageId);
+
 }

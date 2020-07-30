@@ -18,16 +18,19 @@ public class LazyForBot {
     private AddDeleteNewStreamer addDeleteNewStreamer;
     private BaseMessagesEpic newCharBaseMessagesEpic;
     private StartPolling startPolling;
+    private GWInfoHelper gwInfoHelper;
 
     public LazyForBot(@Lazy GetMessageEpicSevenInterface getMessageEpicSevenInterface, @Lazy NewChatMembersInOut newChatMembersIn,
                       @Lazy CreateButtonsInline createButtonsInline,
-                      @Lazy AddDeleteNewStreamer addDeleteNewStreamer, @Lazy BaseMessagesEpic newCharBaseMessagesEpic, @Lazy StartPolling startPolling) {
+                      @Lazy AddDeleteNewStreamer addDeleteNewStreamer, @Lazy BaseMessagesEpic newCharBaseMessagesEpic,
+                      @Lazy StartPolling startPolling, @Lazy GWInfoHelper gwInfoHelper) {
         this.getMessageEpicSevenInterface = getMessageEpicSevenInterface;
         this.newChatMembersIn = newChatMembersIn;
         this.createButtonsInline = createButtonsInline;
         this.addDeleteNewStreamer = addDeleteNewStreamer;
         this.newCharBaseMessagesEpic = newCharBaseMessagesEpic;
         this.startPolling = startPolling;
+        this.gwInfoHelper = gwInfoHelper;
 
     }
 
@@ -89,6 +92,10 @@ public class LazyForBot {
 
     public InlineKeyboardMarkup createPullButtons(String userId) {
         return createButtonsInline.createPollButtons("tata", userId);
+    }
+
+    public void gwGetInfoFromButton(CallbackQuery mes){
+        gwInfoHelper.gwGetInfoFromButton(mes);
     }
 
 }

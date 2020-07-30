@@ -19,12 +19,15 @@ spring:
 
 
 scheduler:
-  cron: "0 */1 * * * *"
-  work: true
+  stream:
+    cron: "0 */1 * * * *"
+    work: true
+  gwinfo:
+    cron: "0 */1 * * * *"
+    work: true
 
-#bot:
-#  token: 1141083713:AAG8Vu-DXUvIxq4RZp1NMXUBMocjjrH0EVA
-#  name: tguardians_bot
+gwchatIds: "-1001425195630"
+
 
 
 bot:

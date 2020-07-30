@@ -304,6 +304,9 @@ public class BaseMessagesEpic {
         } else {
             userName = callbackQuery.getFrom().getUserName();
         }
+        if (userName == null){
+            userName = "Аноним";
+        }
 
         String text = userName + " получил это:" + "\n";
 
@@ -349,6 +352,10 @@ public class BaseMessagesEpic {
             userName = message.getFrom().getUserName();
         } else {
             userName = callbackQuery.getFrom().getUserName();
+        }
+
+        if (userName == null){
+            userName = "Аноним";
         }
 
         String text = userName + " получил это:" + "\n";

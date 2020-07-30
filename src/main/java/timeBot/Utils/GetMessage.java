@@ -1,7 +1,6 @@
 package timeBot.Utils;
 
 import lombok.AllArgsConstructor;
-import org.json.simple.JSONArray;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -34,9 +33,59 @@ public class GetMessage implements GetMessageEpicSevenInterface {
     private final AddArtsInBase addArtsInBase;
     private final PollRollRepository pollRollRepository;
     private final RandomPoll randomPoll;
+    private final GWInfoHelper gwInfoHelper;
 
 
     public void msgMap(Message msg) {
+        String gwChats = "-1001192580333";
+        if (gwChats.contains(msg.getChat().getId().toString())) {
+            gwMsg(msg);
+        } else {
+            mainMsgs(msg);
+        }
+    }
+
+    public void gwMsg(Message msg) {
+        String message = msg.getText();
+        if (message.equals("/help") || message.equals("/help@tguardians_bot")) {
+            bot.sendMsg("<b>Все команды</b> - \n " +
+                            "/streamers - показывает зарегестрированных стримеров \n"
+                    , msg.getChatId().toString());
+            bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
+        }
+
+        if (message.equals("/help1") || message.equals("/help1@tguardians_bot")) {
+            bot.sendMsg("<b>Пока ничего</b> - \n"
+                    , msg.getChatId().toString());
+            bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
+        }
+
+        if (message.equals("/adminHelp")) {
+            if (adminTest(msg.getFrom().getId().toString())) {
+                bot.sendMsg("<b>Все команды</b> - \n "
+                        , msg.getChatId().toString());
+            }
+            bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
+        }
+
+        if (message.contains("/add")) {
+            if (message.length() < 8) {
+                bot.sendMsg("Странно чет инфы мало не буду записывать!", msg.getChatId().toString());
+            } else {
+                gwInfoHelper.gwNewInfoSave(msg);
+            }
+        }
+
+        if (message.contains("/info")) {
+            gwInfoHelper.gwGetInfo(msg);
+        }
+
+
+    }
+
+
+    public void mainMsgs(Message msg) {
+
 
         String message = msg.getText();
         if (message.equals("/help") || message.equals("/help@tguardians_bot")) {
@@ -112,6 +161,24 @@ public class GetMessage implements GetMessageEpicSevenInterface {
         }
 //        "292174947"; я
         //   408041591 тима
+
+        if (msg.getNewChatMembers() != null && !msg.getNewChatMembers().isEmpty()) {
+            retransliator.addNewMember(msg);
+        }
+
+        if (msg.getText().equals("/hero") || msg.getText().equals("/hero@tguardians_bot")) {
+        } else {
+            if (msg.getText().substring(1, 5).equals("hero")) {
+                retransliator.getNewChar(msg);
+            }
+        }
+
+        if (msg.getText().equals("/art") || msg.getText().equals("/art@tguardians_bot")) {
+        } else {
+            if (msg.getText().substring(1, 4).equals("art")) {
+                retransliator.getNewArt(msg);
+            }
+        }
 
         message = message.toLowerCase();
 
@@ -192,11 +259,6 @@ public class GetMessage implements GetMessageEpicSevenInterface {
             }
             bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
         }
-
-    }
-
-    private boolean arrayCheck(Object t) {
-        return t instanceof JSONArray;
     }
 
     private boolean adminTest(String id) {

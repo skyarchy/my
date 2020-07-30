@@ -4,10 +4,8 @@ package timeBot.Utils;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
+import timeBot.entity.GWInfoEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,8 +74,8 @@ public class CreateButtonsInline {
             }
             rowsInline.add(rowInline);
         } else {
-            for(int i = 0; i<names.size();i++){
-                if (i<2){
+            for (int i = 0; i < names.size(); i++) {
+                if (i < 2) {
                     rowInline.add(new InlineKeyboardButton().setText(names.get(i)).setCallbackData("getHeroNamefrombot:" + names.get(i) + ":" + userId));
                 } else {
                     rowInline2.add(new InlineKeyboardButton().setText(names.get(i)).setCallbackData("getHeroNamefrombot:" + names.get(i) + ":" + userId));
@@ -86,8 +84,6 @@ public class CreateButtonsInline {
             rowsInline.add(rowInline);
             rowsInline.add(rowInline2);
         }
-
-        InlineKeyboardButton asa = new InlineKeyboardButton();
 
         markupInline.setKeyboard(rowsInline);
 
@@ -106,6 +102,34 @@ public class CreateButtonsInline {
         rowInline.add(skill2button);
 
         rowsInline.add(rowInline);
+
+        markupInline.setKeyboard(rowsInline);
+
+        return markupInline;
+    }
+
+
+    public InlineKeyboardMarkup getBaseGWInfoButtons(List<GWInfoEntity> gwInfoEntities, String userId) {
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline = new ArrayList<>();
+        int a = 0;
+        int i = 0;
+        for (GWInfoEntity data : gwInfoEntities) {
+            i++;
+            if (a <= 6) {
+                a++;
+                String text = String.valueOf(data.getBNumber());
+                rowInline.add(new InlineKeyboardButton().setText(text).setCallbackData("getGWInfoFromBase:" + text + ":" + userId));
+            } else {
+                a = 0;
+                rowsInline.add(rowInline);
+                rowInline.clear();
+            }
+            if (i == gwInfoEntities.size()){
+                rowsInline.add(rowInline);
+            }
+        }
 
         markupInline.setKeyboard(rowsInline);
 

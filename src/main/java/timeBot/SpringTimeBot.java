@@ -29,7 +29,6 @@ public class SpringTimeBot implements CommandLineRunner {
 
     }
 
-
     public static void main(String[] args) {
         ApiContextInitializer.init();
         SpringApplication.run(SpringTimeBot.class, args);

@@ -34,6 +34,7 @@ public class Bot extends TelegramLongPollingBot implements BotService {
     }
 
 
+    @Override
     public synchronized void sendMessageBase(boolean html, boolean disableWebPreviw, Long chatId, InlineKeyboardMarkup inlineKeyboardMarkup, String text) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableHtml(html);
@@ -49,6 +50,7 @@ public class Bot extends TelegramLongPollingBot implements BotService {
         }
     }
 
+    @Override
     public synchronized void editMessageBase(boolean html, boolean disableWebPreviw, Long chatId, Integer messageId, InlineKeyboardMarkup inlineKeyboardMarkup, String text) {
         EditMessageText editMessage = new EditMessageText();
         editMessage.enableHtml(html);
@@ -67,6 +69,7 @@ public class Bot extends TelegramLongPollingBot implements BotService {
 
     }
 
+    @Override
     public synchronized void sendPhotoBase(Long chatId, String imageCaption, String photo, File filePhoto, InlineKeyboardMarkup inlineKeyboardMarkup) {
         SendPhoto sendPhoto = new SendPhoto();
         sendPhoto.setChatId(chatId);
@@ -82,6 +85,7 @@ public class Bot extends TelegramLongPollingBot implements BotService {
         }
     }
 
+    @Override
     public synchronized void editPhotoMessageBase(Long chatId, Integer messageId, String imageCaption, String photo, InlineKeyboardMarkup inlineKeyboardMarkup) {
         EditMessageMedia editMessageMedia = new EditMessageMedia();
         InputMediaPhoto inputMediaPhoto = new InputMediaPhoto();
@@ -97,6 +101,7 @@ public class Bot extends TelegramLongPollingBot implements BotService {
         }
     }
 
+    @Override
     public synchronized void callBackNotice(String id, String text) {
         AnswerCallbackQuery sendMessage = new AnswerCallbackQuery();
         sendMessage.setShowAlert(false);
@@ -110,12 +115,30 @@ public class Bot extends TelegramLongPollingBot implements BotService {
         }
     }
 
+    @Override
     public synchronized void deleteMsg(int messageId, String chatId) {
         DeleteMessage deleteMessage = new DeleteMessage();
         deleteMessage.setChatId(chatId);
         deleteMessage.setMessageId(messageId);
         try {
             execute(deleteMessage);
+        } catch (TelegramApiException e) {
+//            System.out.println(e);
+        }
+    }
+
+    @Override
+    public synchronized void sendReplyBase(boolean html, boolean disableWebPreviw, Long chatId, InlineKeyboardMarkup inlineKeyboardMarkup, String text, String replyMessageId) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setReplyToMessageId(Integer.valueOf(replyMessageId));
+        sendMessage.enableHtml(html);
+        if (disableWebPreviw)
+            sendMessage.disableWebPagePreview();
+        sendMessage.setChatId(chatId);
+        sendMessage.setReplyMarkup(inlineKeyboardMarkup);
+        sendMessage.setText(text);
+        try {
+            execute(sendMessage);
         } catch (TelegramApiException e) {
 //            System.out.println(e);
         }
