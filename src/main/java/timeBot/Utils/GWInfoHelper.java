@@ -40,7 +40,7 @@ public class GWInfoHelper {
             } else {
                 gwInfoEntity.setDate(new Timestamp(System.currentTimeMillis()));
                 String firstInfo = gwInfoEntity.getInfo();
-                gwInfoEntity.setInfo(firstInfo + " <b>Added info:</b> " + message.substring(8));
+                gwInfoEntity.setInfo(firstInfo + " Added info: " + message.substring(8));
                 String messageId = gwInfoEntity.getMsgId();
                 gwInfoEntity.setMsgId(messageId+":"+msg.getMessageId());
                 gwInfoRepository.save(gwInfoEntity);
@@ -49,7 +49,7 @@ public class GWInfoHelper {
                 botService.sendMessageBase(true, false, msg.getChatId(), null, "Добавила инфу!");
             }
         } else {
-            botService.sendMessageBase(true, false, msg.getChatId(), null, "Не знаю я башни которую ты пытаешся вписать не буду записывать!");
+            botService.sendMessageBase(false, false, msg.getChatId(), null, "Не знаю я башни которую ты пытаешся вписать не буду записывать!");
         }
     }
 

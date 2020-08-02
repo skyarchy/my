@@ -25,6 +25,9 @@ scheduler:
   gwinfo:
     cron: "0 */1 * * * *"
     work: true
+  alldayawa:
+    cron: "0 */1 * * * *"
+    work: true
 
 
 

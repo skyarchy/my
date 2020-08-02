@@ -10,6 +10,7 @@ import timeBot.dto.MessageDTO;
 import timeBot.entity.AllArtsEntity;
 import timeBot.entity.AllHeroesEntity;
 import timeBot.mainbot.BotInterface;
+import timeBot.mainbot.BotService;
 import timeBot.repository.AllArtsDbRepository;
 import timeBot.repository.AllHeroDbRepository;
 
@@ -24,6 +25,7 @@ public class BaseMessagesEpic {
     private final AllHeroDbRepository allHeroDbRepository;
     private final AllArtsDbRepository allArtsDbRepository;
     private final BotInterface bot;
+    private final BotService botService;
 
 
     public boolean getHeroMessage(Message message) {
@@ -367,5 +369,17 @@ public class BaseMessagesEpic {
         } else {
             bot.sendPullMessageLast(callbackQuery, text, allHeroesEntity.getImage());
         }
+    }
+
+    public void getPollHeroForAwarness(String name) {
+        AllHeroesEntity allHeroesEntity = allHeroDbRepository.getAllByName(name);
+
+        String text = "Новый день начался. \n Сегодня день : " + allHeroesEntity.getName() + " всем добра =)";
+        Long chatId = Long.parseLong("-1001425195630");
+//        Long chatId = Long.parseLong("-1001429712030");
+
+        botService.sendPhotoBase(chatId, text, allHeroesEntity.getImage(), null, null);
+
+
     }
 }

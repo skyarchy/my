@@ -67,6 +67,19 @@ public class RandomPoll {
         return "hero4ml";
     }
 
+    private String randomAwaPull() {
+        int hero3 = 650000000;
+        int hero4 = 1000000000;
+        int hero5 = 200000000;
+
+        int hero = randomMath();
+        if (hero < hero5)
+            return "hero5";
+        if (hero < hero3)
+            return "hero3";
+        return "hero4";
+    }
+
 
     public void getRandomHero(Message message, CallbackQuery callbackQuery, boolean flag) {
         String choise = "nooo";
@@ -175,6 +188,27 @@ public class RandomPoll {
             }
         }
         return false;
+    }
+
+    public void getHeroForDayAwarness() {
+
+        List<AllHeroesEntity> heroData = new ArrayList<>();
+
+        String group = randomAwaPull();
+
+        switch (group) {
+            case ("hero3"):
+                heroData = allHeroDbRepository.getAllByStars(3);
+                break;
+            case ("hero4"):
+                heroData = allHeroDbRepository.getAllByStars(4);
+                break;
+            case ("hero5"):
+                heroData = allHeroDbRepository.getAllByStars(5);
+                break;
+        }
+        int i = random.nextInt(heroData.size());
+        baseMessagesEpic.getPollHeroForAwarness(heroData.get(i).getName());
     }
 
 

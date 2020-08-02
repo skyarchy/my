@@ -7,9 +7,11 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import timeBot.dto.StreamsDTO;
 import timeBot.entity.PollEntity;
 import timeBot.entity.StreamersDataEntity;
+import timeBot.entity.SystemTable;
 import timeBot.mainbot.BotInterface;
 import timeBot.repository.PollRollRepository;
 import timeBot.repository.StreamersDataRepository;
+import timeBot.repository.SystemTableRepository;
 import timeBot.services.AddArtsInBase;
 import timeBot.services.AddHeroesInBase;
 import timeBot.services.CatsAPI;
@@ -18,6 +20,7 @@ import timeBot.twitchapi.GetStream;
 
 import java.io.File;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service
@@ -34,6 +37,7 @@ public class GetMessage implements GetMessageEpicSevenInterface {
     private final PollRollRepository pollRollRepository;
     private final RandomPoll randomPoll;
     private final GWInfoHelper gwInfoHelper;
+    private final SystemTableRepository systemTableRepository;
 
 
     public void msgMap(Message msg) {
@@ -52,7 +56,7 @@ public class GetMessage implements GetMessageEpicSevenInterface {
                             "/getBaseNumbers получить картинку с номерами башен \n" +
                             "/info получить инфу которую уже добавили за сегодня\n" +
                             "\n" +
-                            "чтобы добавить инфу нужно написать \"/add 13 (где 13 это номер башни) инфа текстом без картинок \" \n"
+                            "чтобы добавить инфу нужно написать \"/add 13 (где 1-номер форта 3-это номер башни) инфа текстом без картинок \" \n"
                     , msg.getChatId().toString());
             bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
         }
@@ -155,6 +159,16 @@ public class GetMessage implements GetMessageEpicSevenInterface {
         if (message.contains("/refreshherodb")) {
             if (adminTest(msg.getFrom().getId().toString())) {
                 addHeroesInBase.addHeroesInDB();
+            }
+            bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
+        }
+
+        if (message.contains("/addNumber")) {
+            if (adminTest(msg.getFrom().getId().toString())) {
+                SystemTable systemTable = new SystemTable();
+                systemTable.setCode("awCode");
+                systemTable.setOnoff(0);
+                systemTableRepository.save(systemTable);
             }
             bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
         }
@@ -284,6 +298,4 @@ public class GetMessage implements GetMessageEpicSevenInterface {
     private boolean adminTest(String id) {
         return "292174947;408041591".contains(id);
     }
-
-
 }
