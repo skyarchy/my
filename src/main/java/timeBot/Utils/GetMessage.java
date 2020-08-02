@@ -41,7 +41,7 @@ public class GetMessage implements GetMessageEpicSevenInterface {
 
 
     public void msgMap(Message msg) {
-        String gwChats = "-1001192580333";
+        String gwChats = "-1001192580333;-1001429712030";
         if (gwChats.contains(msg.getChat().getId().toString())) {
             gwMsg(msg);
         } else {

@@ -36,7 +36,7 @@ public class GWInfoHelper {
                 gwInfoEntity1.setInfo(message.substring(8));
                 gwInfoEntity1.setMsgId(msg.getMessageId().toString());
                 gwInfoRepository.save(gwInfoEntity1);
-                botService.sendMessageBase(true, false, msg.getChatId(), null, "Записала инфу!");
+                botService.sendMessageBase(false, false, msg.getChatId(), null, "Записала инфу!");
             } else {
                 gwInfoEntity.setDate(new Timestamp(System.currentTimeMillis()));
                 String firstInfo = gwInfoEntity.getInfo();
@@ -46,7 +46,7 @@ public class GWInfoHelper {
                 gwInfoRepository.save(gwInfoEntity);
 
 
-                botService.sendMessageBase(true, false, msg.getChatId(), null, "Добавила инфу!");
+                botService.sendMessageBase(false, false, msg.getChatId(), null, "Добавила инфу!");
             }
         } else {
             botService.sendMessageBase(false, false, msg.getChatId(), null, "Не знаю я башни которую ты пытаешся вписать не буду записывать!");
@@ -56,7 +56,7 @@ public class GWInfoHelper {
 
     public void gwGetInfo(Message msg) {
         List<GWInfoEntity> gwInfoEntityList = gwInfoRepository.getAll();
-        botService.sendMessageBase(true, false, msg.getChatId(),
+        botService.sendMessageBase(false, false, msg.getChatId(),
                 createButtonsInline.getBaseGWInfoButtons(gwInfoEntityList, msg.getFrom().getId().toString()), "Вся инфа на сегодня :");
 
     }
@@ -67,10 +67,10 @@ public class GWInfoHelper {
         String userid = newData[2];
         if (userid.equals(mes.getFrom().getId().toString())) {
             GWInfoEntity gwInfoEntity = gwInfoRepository.getAllByBNumberAndChatId(Integer.valueOf(newData[1]), mes.getMessage().getChatId().toString());
-            botService.editMessageBase(true, false, mes.getMessage().getChatId(), mes.getMessage().getMessageId(), null, gwInfoEntity.getInfo());
+            botService.editMessageBase(false, false, mes.getMessage().getChatId(), mes.getMessage().getMessageId(), null, gwInfoEntity.getInfo());
             String[] messageIds = gwInfoEntity.getMsgId().split(":");
             for (String mId: messageIds) {
-                botService.sendReplyBase(true, false, mes.getMessage().getChatId(), null, "Репли сообщения с инфой", mId);
+                botService.sendReplyBase(false, false, mes.getMessage().getChatId(), null, "Репли сообщения с инфой", mId);
             }
         } else {
             botService.callBackNotice(mes.getId(), "Жмакать кнопки может только тот кто сделал запрос");
