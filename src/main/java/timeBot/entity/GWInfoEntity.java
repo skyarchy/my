@@ -14,12 +14,12 @@ public class GWInfoEntity {
     private Long id;
     @Column(name = "CHAT_ID", nullable = false)
     private String chatId;
-    @Column(name = "MSG_ID", nullable = false)
+    @Column(name = "MSG_ID", length = 65535, columnDefinition = "TEXT")
     private String msgId;
     @Column(name = "BASE_NUMBER", nullable = false)
     private int bNumber;
     @Column(name = "DATE", nullable = false)
     private Timestamp date;
-    @Column(name = "INFO", nullable = false)
+    @Column(name = "INFO", length = 65535, columnDefinition = "TEXT")
     private String info;
 }
