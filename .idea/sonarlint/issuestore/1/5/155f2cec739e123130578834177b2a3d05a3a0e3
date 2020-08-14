@@ -1,10 +1,0 @@
-
-{
-java:S3012("YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(±„ÑÆÿÿÿÿÿ8Ã­Á¯¯.
-v
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ËŽÒî8Æ»ì®¯.
-Q
-java:S1066-"/Merge this if statement with the enclosing one.(ßþ‚Íùÿÿÿÿ8žÃÄ¯¯.
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(§ýÌà8Æ»ì®¯.
-E
-java:S1148A"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Æ»ì®¯.

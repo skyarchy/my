@@ -20,7 +20,6 @@ import timeBot.twitchapi.GetStream;
 
 import java.io.File;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service

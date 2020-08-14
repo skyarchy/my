@@ -7,15 +7,8 @@ import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
 import org.springframework.scheduling.support.CronTrigger;
 import org.springframework.stereotype.Component;
-import timeBot.dto.StreamsDTO;
 import timeBot.entity.GWInfoEntity;
-import timeBot.entity.OnlineEntity;
-import timeBot.entity.StreamersDataEntity;
-import timeBot.mainbot.BotService;
 import timeBot.repository.GWInfoRepository;
-import timeBot.repository.OnlineCheckRepository;
-import timeBot.repository.StreamersDataRepository;
-import timeBot.twitchapi.GetStream;
 
 import javax.annotation.PostConstruct;
 import java.sql.Timestamp;
@@ -37,7 +30,6 @@ public class GWInfoScheduler implements Runnable {
     private final GWInfoRepository gwInfoRepository;
 
 
-
     private void reSchedule(String cronExpressionStr) {
         if (taskScheduler == null) {
             taskScheduler = new ConcurrentTaskScheduler();
@@ -52,10 +44,10 @@ public class GWInfoScheduler implements Runnable {
     public void run() {
         if (work) {
             List<GWInfoEntity> gwInfoEntities = gwInfoRepository.getAll();
-            for(GWInfoEntity data : gwInfoEntities){
+            for (GWInfoEntity data : gwInfoEntities) {
                 long razn = new Timestamp(System.currentTimeMillis()).getTime() - data.getDate().getTime();
-                long waiting = 1440 - razn/(60*1000);
-                if (waiting < 0){
+                long waiting = 1440 - razn / (60 * 1000);
+                if (waiting < 0) {
                     gwInfoRepository.delete(data);
                 }
             }

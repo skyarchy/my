@@ -1,14 +1,19 @@
 
-c
-java:S11922"HDefine a constant instead of duplicating this literal "hero4ml" 3 times.(ƒÕŸúÿÿÿÿ
-G
-java:S1481:",Remove this unused "hero4ml" local variable.(Ë«×Ñûÿÿÿÿ
-m
-java:S3776E"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(ìòŸ´øÿÿÿÿ
-D
-java:S1481"")Remove this unused "art3" local variable.(¾Í‘ƒûÿÿÿÿ
 ^
-java:S11924"HDefine a constant instead of duplicating this literal "hero5ml" 3 times.(…ÛéÖ
+java:S11925"HDefine a constant instead of duplicating this literal "hero5ml" 3 times.(…ÛéÖ
 c
-java:S1192,"HDefine a constant instead of duplicating this literal "hero3ml" 3 times.( Ÿ…Šøÿÿÿÿ
+java:S11923"HDefine a constant instead of duplicating this literal "hero4ml" 3 times.(ƒÕŸúÿÿÿÿ
+G
+java:S1481;",Remove this unused "hero4ml" local variable.(Ë«×Ñûÿÿÿÿ
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ä¹õ
+D
+java:S1481#")Remove this unused "art3" local variable.(¾Í‘ƒûÿÿÿÿ
+c
+java:S1192-"HDefine a constant instead of duplicating this literal "hero3ml" 3 times.( Ÿ…Šøÿÿÿÿ
+i
+java:S1192W"LDefine a constant instead of duplicating this literal "/pullnormal" 4 times.(»éÚ‚8¦ÔÃ¡¼.
+t
+java:S3776T"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(Â½ùÿÿÿÿ8¦ÔÃ¡¼.
+D	java:S131Ç""Add a default case to this switch.(¡áŸˆüÿÿÿÿ8¦ÔÃ¡¼.
+L
+java:S1481H"*Remove this unused "hero4" local variable.(”æ»€úÿÿÿÿ8¦ÔÃ¡¼.

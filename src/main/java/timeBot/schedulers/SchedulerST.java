@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import timeBot.dto.StreamsDTO;
 import timeBot.entity.OnlineEntity;
 import timeBot.entity.StreamersDataEntity;
-import timeBot.mainbot.Bot;
 import timeBot.mainbot.BotService;
 import timeBot.repository.OnlineCheckRepository;
 import timeBot.repository.StreamersDataRepository;
@@ -59,7 +58,7 @@ public class SchedulerST implements Runnable {
                     OnlineEntity onlineEntity = onlineRepository.getRow(data.getCode());
                     if (streamsDTO != null) {
                         if (onlineEntity.getOnoff() == 0) {
-                            botService.sendMessageBase(true, false, Long.parseLong("-1001425195630"),null, "Стрим начался. Game - " + streamsDTO.getGameName() + "\n" +
+                            botService.sendMessageBase(true, false, Long.parseLong("-1001425195630"), null, "Стрим начался. Game - " + streamsDTO.getGameName() + "\n" +
                                     " <a href=\"" + streamsDTO.getChannelUrl() + "\">" + data.getName() + "</a>");
                             onlineEntity.setOnoff(1);
                             onlineRepository.save(onlineEntity);

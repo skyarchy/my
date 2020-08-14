@@ -113,21 +113,35 @@ public class CreateButtonsInline {
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        int a = 0;
+        int masSize = gwInfoEntities.size();
         int i = 0;
         for (GWInfoEntity data : gwInfoEntities) {
             i++;
-            if (a <= 6) {
-                a++;
-                String text = String.valueOf(data.getBNumber());
-                rowInline.add(new InlineKeyboardButton().setText(text).setCallbackData("getGWInfoFromBase:" + text + ":" + userId));
-            } else {
-                a = 0;
-                rowsInline.add(rowInline);
-                rowInline.clear();
-            }
-            if (i == gwInfoEntities.size()){
-                rowsInline.add(rowInline);
+            String text = String.valueOf(data.getBNumber());
+            rowInline.add(new InlineKeyboardButton().setText(text).setCallbackData("getGWInfoFromBase:" + text + ":" + userId));
+            if (i == gwInfoEntities.size()) {
+                if (i <= 6) {
+                    rowsInline.add(rowInline.subList(0, i));
+                } else {
+                    if (i <= 14) {
+                        rowsInline.add(rowInline.subList(0, 6));
+                        rowsInline.add(rowInline.subList(7, i));
+                    } else {
+                        if (i <= 21) {
+                            rowsInline.add(rowInline.subList(0, 6));
+                            rowsInline.add(rowInline.subList(7, 13));
+                            rowsInline.add(rowInline.subList(14, i));
+                        } else {
+                            if (i <= 28) {
+                                rowsInline.add(rowInline.subList(0, 6));
+                                rowsInline.add(rowInline.subList(7, 13));
+                                rowsInline.add(rowInline.subList(14, 20));
+                                rowsInline.add(rowInline.subList(21, i));
+                            }
+                        }
+                    }
+                }
+
             }
         }
 

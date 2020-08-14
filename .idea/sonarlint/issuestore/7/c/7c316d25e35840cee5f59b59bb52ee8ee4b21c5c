@@ -1,40 +1,41 @@
 
+k
+java:S1192X"IDefine a constant instead of duplicating this literal "manauser" 3 times.(ö…ó¹ÿÿÿÿÿ8‡‰Ùæ¶.
+k
+java:S1192ç"MDefine a constant instead of duplicating this literal "{{variable}}" 3 times.(¸ŞªŒ8Åõ˜å¯.
 u
-java:S3776ô"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(äÛÖşùÿÿÿÿ8ùû¨å¯.
-:
-java:S1643ƒ"Use a StringBuilder instead.(øğ³®8 å§å¯.
-k
-java:S1192å"MDefine a constant instead of duplicating this literal "{{variable}}" 3 times.(¸ŞªŒ8Åõ˜å¯.
-W
-java:S4973µ"9Use the "equals" method if value comparison was intended.(œ»„¾8Ô‚¿ã¯.
-t
-java:S1192Û"QDefine a constant instead of duplicating this literal "\\{\\{variable}}" 3 times.(›Ş§³şÿÿÿÿ8ùû¨å¯.
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ä¹õ
-:
-java:S1643“"Use a StringBuilder instead.(øğ³®8¶î³å¯.
-:
-java:S1643á"Use a StringBuilder instead.(øğ³®8ùû¨å¯.
-p
-java:S3776¥"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(…‚§À8Ô‚¿ã¯.
-k
-java:S5361¯"HReplace this call to "replaceAll()" by a call to the "replace()" method.(‘ÏÎˆÿÿÿÿÿ8Ô‚¿ã¯.
-9
-java:S1643¸"Use a StringBuilder instead.(ğ »;8Ô‚¿ã¯.
-[
-java:S3516c"9Refactor this method to not always return the same value.(Û¼Îªÿÿÿÿÿ8‡‰Ùæ¶.
-j
-java:S1192M"MDefine a constant instead of duplicating this literal "\uD83C\uDF33" 3 times.(áì¢ã8‡‰Ùæ¶.
-e
-java:S1192W"HDefine a constant instead of duplicating this literal "supprot" 3 times.(“¤Öâ8‡‰Ùæ¶.
-j
-java:S1192G"MDefine a constant instead of duplicating this literal "\uD83D\uDD25" 3 times.(Ø‰Ã8‡‰Ùæ¶.
-j
-java:S1192J"MDefine a constant instead of duplicating this literal "\uD83D\uDCA7" 3 times.(É×¿ã8‡‰Ùæ¶.
+java:S3776ö"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(äÛÖşùÿÿÿÿ8ùû¨å¯.
 c
-java:S1192O"FDefine a constant instead of duplicating this literal "light" 3 times.(ñá€ì8‡‰Ùæ¶.
+java:S1192Q"FDefine a constant instead of duplicating this literal "light" 3 times.(ñá€ì8‡‰Ùæ¶.
 k
-java:S1192V"IDefine a constant instead of duplicating this literal "manauser" 3 times.(ö…ó¹ÿÿÿÿÿ8‡‰Ùæ¶.
-o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¿‘í—8‡‰Ùæ¶.
+java:S5361±"HReplace this call to "replaceAll()" by a call to the "replace()" method.(‘ÏÎˆÿÿÿÿÿ8Ô‚¿ã¯.
 t
-java:S3776c"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Û¼Îªÿÿÿÿÿ8‡‰Ùæ¶.
+java:S1192İ"QDefine a constant instead of duplicating this literal "\\{\\{variable}}" 3 times.(›Ş§³şÿÿÿÿ8ùû¨å¯.
+j
+java:S1192L"MDefine a constant instead of duplicating this literal "\uD83D\uDCA7" 3 times.(É×¿ã8‡‰Ùæ¶.
+W
+java:S4973·"9Use the "equals" method if value comparison was intended.(œ»„¾8Ô‚¿ã¯.
+e
+java:S1192Y"HDefine a constant instead of duplicating this literal "supprot" 3 times.(“¤Öâ8‡‰Ùæ¶.
+:
+java:S1643…"Use a StringBuilder instead.(øğ³®8¶î³å¯.
+9
+java:S1643º"Use a StringBuilder instead.(ğ »;8Ô‚¿ã¯.
+t
+java:S3776e"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Û¼Îªÿÿÿÿÿ8‡‰Ùæ¶.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ä¹õ
+j
+java:S1192I"MDefine a constant instead of duplicating this literal "\uD83D\uDD25" 3 times.(Ø‰Ã8‡‰Ùæ¶.
+[
+java:S3516e"9Refactor this method to not always return the same value.(Û¼Îªÿÿÿÿÿ8‡‰Ùæ¶.
+j
+java:S1192O"MDefine a constant instead of duplicating this literal "\uD83C\uDF33" 3 times.(áì¢ã8‡‰Ùæ¶.
+:
+java:S1643ã"Use a StringBuilder instead.(øğ³®8 å§å¯.
+:
+java:S1643•"Use a StringBuilder instead.(øğ³®8ùû¨å¯.
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¿‘í—8‡‰Ùæ¶.
+p
+java:S3776§"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(…‚§À8Ô‚¿ã¯.
+Y	java:S125û"<This block of commented-out lines of code should be removed.(ù­Çò8ÄÛ±ß».

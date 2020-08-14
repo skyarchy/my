@@ -8,18 +8,11 @@ import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
 import org.springframework.scheduling.support.CronTrigger;
 import org.springframework.stereotype.Component;
 import timeBot.Utils.RandomPoll;
-import timeBot.entity.GWInfoEntity;
 import timeBot.entity.SystemTable;
-import timeBot.mainbot.BotInterface;
-import timeBot.mainbot.BotService;
-import timeBot.repository.GWInfoRepository;
 import timeBot.repository.SystemTableRepository;
 
 import javax.annotation.PostConstruct;
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 
 @Component
@@ -38,8 +31,6 @@ public class AllDayAwarness implements Runnable {
     private final RandomPoll randomPoll;
 
 
-
-
     private void reSchedule(String cronExpressionStr) {
         if (taskScheduler == null) {
             taskScheduler = new ConcurrentTaskScheduler();
@@ -55,14 +46,14 @@ public class AllDayAwarness implements Runnable {
         if (work) {
             String mamama = new Date().toString();
             SystemTable systemTable = systemTableRepository.getAllByCode("awCode");
-            if("06".equals(mamama.substring(11,13))){
-                if (systemTable.getOnoff() == 0){
+            if ("06".equals(mamama.substring(11, 13))) {
+                if (systemTable.getOnoff() == 0) {
                     randomPoll.getHeroForDayAwarness();
                     systemTable.setOnoff(1);
                     systemTableRepository.save(systemTable);
                 }
             } else {
-                if (systemTable.getOnoff() == 1){
+                if (systemTable.getOnoff() == 1) {
                     systemTable.setOnoff(0);
                     systemTableRepository.save(systemTable);
                 }
