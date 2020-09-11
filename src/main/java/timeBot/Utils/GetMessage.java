@@ -9,6 +9,7 @@ import timeBot.entity.PollEntity;
 import timeBot.entity.StreamersDataEntity;
 import timeBot.entity.SystemTable;
 import timeBot.mainbot.BotInterface;
+import timeBot.parser.HTMLParser;
 import timeBot.repository.PollRollRepository;
 import timeBot.repository.StreamersDataRepository;
 import timeBot.repository.SystemTableRepository;
@@ -37,6 +38,7 @@ public class GetMessage implements GetMessageEpicSevenInterface {
     private final RandomPoll randomPoll;
     private final GWInfoHelper gwInfoHelper;
     private final SystemTableRepository systemTableRepository;
+    private final HTMLParser htmlParser;
 
 
     public void msgMap(Message msg) {
@@ -217,6 +219,9 @@ public class GetMessage implements GetMessageEpicSevenInterface {
 
 
         if (message.equals("/test")) {
+//
+//            htmlParser.parse();
+//            int a = 10;
 
             bot.sendMsg("test", msg.getChatId().toString());
             bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());

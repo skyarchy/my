@@ -5,8 +5,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
-import timeBot.entity.GWInfoEntity;
+import timeBot.Utils.exception.BotAllException;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,44 +110,46 @@ public class CreateButtonsInline {
     }
 
 
-    public InlineKeyboardMarkup getBaseGWInfoButtons(List<GWInfoEntity> gwInfoEntities, String userId) {
-        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
-        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
-        List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        int masSize = gwInfoEntities.size();
-        int i = 0;
-        for (GWInfoEntity data : gwInfoEntities) {
-            i++;
-            String text = String.valueOf(data.getBNumber());
-            rowInline.add(new InlineKeyboardButton().setText(text).setCallbackData("getGWInfoFromBase:" + text + ":" + userId));
-            if (i == gwInfoEntities.size()) {
-                if (i <= 6) {
-                    rowsInline.add(rowInline.subList(0, i));
-                } else {
-                    if (i <= 14) {
-                        rowsInline.add(rowInline.subList(0, 6));
-                        rowsInline.add(rowInline.subList(7, i));
-                    } else {
-                        if (i <= 21) {
-                            rowsInline.add(rowInline.subList(0, 6));
-                            rowsInline.add(rowInline.subList(7, 13));
-                            rowsInline.add(rowInline.subList(14, i));
-                        } else {
-                            if (i <= 28) {
-                                rowsInline.add(rowInline.subList(0, 6));
-                                rowsInline.add(rowInline.subList(7, 13));
-                                rowsInline.add(rowInline.subList(14, 20));
-                                rowsInline.add(rowInline.subList(21, i));
-                            }
-                        }
-                    }
-                }
-
-            }
+    public InlineKeyboardMarkup createNewButtons(@NotNull List<String> text, @NotNull List<String> callBackText, int buttonsInRow) {
+        if (text.size() != callBackText.size()) {
+            throw new BotAllException("Списки кнопок и ответов не равны");
         }
 
-        markupInline.setKeyboard(rowsInline);
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline = new ArrayList<>();
 
-        return markupInline;
+        int call = 0;
+        for (String data : text) {
+            rowInline.add(new InlineKeyboardButton().setText(data).setCallbackData(callBackText.get(call)));
+            call++;
+        }
+
+        int buttonCounter = 1;
+        int buttonCounterInList = 0;
+        int lastButtonInList = 0;
+        boolean check;
+        while (buttonCounterInList != call + 1) {
+            check = true;
+            if (buttonCounter == buttonsInRow - 1) {
+                if (buttonCounterInList == buttonCounter) {
+                    rowsInline.add(rowInline.subList(lastButtonInList, buttonCounterInList));
+                    lastButtonInList = buttonCounterInList;
+                } else {
+                    rowsInline.add(rowInline.subList(lastButtonInList, buttonCounterInList));
+                    lastButtonInList = buttonCounterInList;
+                }
+                buttonCounter = -1;
+                check = false;
+            }
+            buttonCounter++;
+            buttonCounterInList++;
+            if (buttonCounterInList == call + 1) {
+                if (check) {
+                    rowsInline.add(rowInline.subList(lastButtonInList, buttonCounterInList - 1));
+                }
+            }
+        }
+        return new InlineKeyboardMarkup().setKeyboard(rowsInline);
     }
+
 }

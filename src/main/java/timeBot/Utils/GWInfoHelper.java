@@ -18,6 +18,7 @@ public class GWInfoHelper {
     private final GWInfoRepository gwInfoRepository;
     private final Helper helper;
     private final CreateButtonsInline createButtonsInline;
+    private final CreateButtonsRet createButtonsRet;
     private final BotService botService;
 
 
@@ -57,7 +58,7 @@ public class GWInfoHelper {
     public void gwGetInfo(Message msg) {
         List<GWInfoEntity> gwInfoEntityList = gwInfoRepository.getAll();
         botService.sendMessageBase(false, false, msg.getChatId(),
-                createButtonsInline.getBaseGWInfoButtons(gwInfoEntityList, msg.getFrom().getId().toString()), "Вся инфа на сегодня :");
+                createButtonsRet.gwButtonsCreate(gwInfoEntityList, msg.getFrom().getId().toString()), "Вся инфа на сегодня :");
 
     }
 

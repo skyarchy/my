@@ -58,8 +58,9 @@ public class SchedulerST implements Runnable {
                     OnlineEntity onlineEntity = onlineRepository.getRow(data.getCode());
                     if (streamsDTO != null) {
                         if (onlineEntity.getOnoff() == 0) {
-                            botService.sendMessageBase(true, false, Long.parseLong("-1001425195630"), null, "Стрим начался. Game - " + streamsDTO.getGameName() + "\n" +
-                                    " <a href=\"" + streamsDTO.getChannelUrl() + "\">" + data.getName() + "</a>");
+                            botService.sendMessageBase(true, false, Long.parseLong("-1001425195630"),
+                                    null, "Стрим начался. Game - " + streamsDTO.getGameName() + "\n" +
+                                            " <a href=\"" + streamsDTO.getChannelUrl() + "\">" + data.getName() + "</a>");
                             onlineEntity.setOnoff(1);
                             onlineRepository.save(onlineEntity);
                         }
