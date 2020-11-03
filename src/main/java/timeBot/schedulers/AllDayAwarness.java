@@ -46,7 +46,7 @@ public class AllDayAwarness implements Runnable {
         if (work) {
             String mamama = new Date().toString();
             SystemTable systemTable = systemTableRepository.getAllByCode("awCode");
-            if ("06".equals(mamama.substring(11, 13))) {
+            if ("05".equals(mamama.substring(11, 13))) {
                 if (systemTable.getOnoff() == 0) {
                     randomPoll.getHeroForDayAwarness();
                     systemTable.setOnoff(1);

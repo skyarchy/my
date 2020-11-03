@@ -16,15 +16,9 @@ import java.net.URLConnection;
 @AllArgsConstructor
 public class HTMLParser {
 
-    private final HttpClientNetrika httpClientNetrika;
 
 
     public void parse() {
-        try {
-            httpClientNetrika.test();
-        } catch (Exception e){
-            // aassaa
-        }
 
         Document doc;
         URL url;

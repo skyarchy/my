@@ -114,6 +114,9 @@ public class CreateButtonsInline {
         if (text.size() != callBackText.size()) {
             throw new BotAllException("Списки кнопок и ответов не равны");
         }
+        if (buttonsInRow == 0) {
+            throw new BotAllException("Не может быть 0 кнопок в ряду");
+        }
 
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
