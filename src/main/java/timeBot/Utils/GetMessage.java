@@ -42,7 +42,7 @@ public class GetMessage implements GetMessageEpicSevenInterface {
 
 
     public void msgMap(Message msg) {
-        String gwChats = "-1001192580333;-1001429712030";
+        String gwChats = "-1001192580333";
         if (gwChats.contains(msg.getChat().getId().toString())) {
             gwMsg(msg);
         } else {
@@ -132,7 +132,8 @@ public class GetMessage implements GetMessageEpicSevenInterface {
                             "<a href=\"https://page.onstove.com/epicseven/global/list/e7en001?listType=2&direction=latest&page=1\">Ссыль на главную страницу с новостями по епику</a> \n" +
                             "<a href=\"https://epic7x.com/\">Cсыль на вики по епику</a> \n" +
                             "<a href=\"https://maphe.github.io/e7-damage-calc/\">Ccыль на калькулятор дамага</a> \n" +
-                            "/katal - показывает где фармить каталы"
+                            "/katal - показывает где фармить каталы \n" +
+                            "/red /green /blue - показывает гайды на боссов"
                     , msg.getChatId().toString());
             bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
         }
@@ -255,6 +256,38 @@ public class GetMessage implements GetMessageEpicSevenInterface {
             bot.sendPhotoFile(file, msg.getChatId().toString());
             bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
         }
+
+        if (message.equals("/red") || message.equals("/red@tguardians_bot")) {
+            String pathRed = System.getProperty("user.dir") + File.separator;
+
+            bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathRed + "red.png"), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathRed + "red1.png"), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathRed + "red2.png"), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathRed + "red3.png"), msg.getChatId().toString());
+        }
+
+        if (message.equals("/green") || message.equals("/green@tguardians_bot")) {
+            String pathgreen = System.getProperty("user.dir") + File.separator;
+
+            bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathgreen + "green.png"), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathgreen + "green1.png"), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathgreen + "green2.png"), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathgreen + "green3.png"), msg.getChatId().toString());
+        }
+
+        if (message.equals("/blue") || message.equals("/blue@tguardians_bot")) {
+            String pathblue = System.getProperty("user.dir") + File.separator;
+
+            bot.deleteMsg(msg.getMessageId(), msg.getChatId().toString());
+            bot.sendPhotoFile(new File( pathblue + "blue.png"), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathblue + "blue1.png"), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathblue + "blue2.png"), msg.getChatId().toString());
+            bot.sendPhotoFile(new File(pathblue + "blue3.png"), msg.getChatId().toString());
+        }
+
+
 
 
         if (message.equals("/randomcat") || message.equals("/randomcat@tguardians_bot")) {
